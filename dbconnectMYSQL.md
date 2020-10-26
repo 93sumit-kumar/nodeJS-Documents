@@ -12,4 +12,9 @@ const conn = mySql.createConnection(
 conn.connect(function(err){
   if(err) throw err
   console.log("connected...")
+  conn.query("SELECT * FROM user", (err,res) => {
+    if (err) throw err
+    console.log("all data - ", res)
+    console.log("1st user name - ", res[0].name)
+  })
 })
