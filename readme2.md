@@ -1,4 +1,4 @@
- _Change const value in Node_
+ * ## Change const value in Node
 * Assign a value in const as json. than change the value as per requirements. See below example -
 ```node
 const data = {
@@ -16,7 +16,7 @@ console.log("Data = ", data)
 // Data = { name: 'Sumit Singh', age: 28, email: '93kr.sumit@gmail.com'}
 ```
 
- __Print the data using Template String__
+* ## Print the data using Template String
 ```node
 /**
  * Use of template string
@@ -29,4 +29,44 @@ console.log(`Hi ${empName} you are ${empAge} years old and your email id is ${em
 console.log("Hi %s you are %s years old and your email id is %s", empName,empAge,empEmail)
 
 // Output for both : Hi Raju singh you are 28 years old and your email id is raju@gmail.com
+```
+
+* # Class in NodeJS
+```node
+class Users {
+ constructor() {
+  this.name = "Sumit Singh"
+  this.age = 25
+ }
+ // Create a function to get the name
+ getName() {
+ // if want to add more fields than
+ this.email = "93kr.sumit@gmail.com"
+  return this.name
+ } 
+ // Create a function to get the age
+ getAge() {
+  return this.age
+ }
+ // Create a function to get the Email
+ getEmail() {
+  return this.email
+ }
+ 
+}
+
+// Create as object of Users class
+var user = new Users
+
+// get the value of name
+console.log(user.getName())
+// Output : Sumit Singh
+
+// get the value of age
+console.log(user.getAge())
+// Output : 25
+
+// Get the value of Email
+console.lo(user.getEmail())
+// Output : 93kr.sumit@gmail.com
 ```
