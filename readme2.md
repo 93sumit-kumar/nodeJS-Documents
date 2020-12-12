@@ -1,4 +1,4 @@
-## Change const value in Node
+ _Change const value in Node_
 * Assign a value in const as json. than change the value as per requirements. See below example -
 ```node
 const data = {
@@ -16,7 +16,7 @@ console.log("Data = ", data)
 // Data = { name: 'Sumit Singh', age: 28, email: '93kr.sumit@gmail.com'}
 ```
 
-## Print the data using Template String
+ __Print the data using Template String__
 ```node
 /**
  * Use of template string
