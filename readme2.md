@@ -70,3 +70,26 @@ console.log(user.getAge())
 console.lo(user.getEmail())
 // Output : 93kr.sumit@gmail.com
 ```
+
+* ## Prototype in NodeJS
+* If you want to add some more custom object in already defined function than you prototype keyword.
+#### Example: 
+```node
+// if not want to use var than use function student() {}
+var student = function() {
+    this.name = "Sumit kumar";
+    this.age = 25;
+    this.email = "93kr.sumit@gmail.com";
+}
+/**
+ * use prototype here to add one more data in student function 
+ */
+student.prototype = {
+    address: "Faridabad",
+    getData:function() {
+        return this.address // or use this.name or this.age or this.email etc...
+    }
+}
+var stud = new student();
+console.log(stud.getData()) // you can use stud.address or stud.name or stud.age etc...
+```
