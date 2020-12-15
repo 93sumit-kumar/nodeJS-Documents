@@ -93,3 +93,49 @@ student.prototype = {
 var stud = new student();
 console.log(stud.getData()) // you can use stud.address or stud.name or stud.age etc...
 ```
+
+* ## FileSystem in NodeJS
+* Read file example (in console)
+```node
+const fs = require('fs)
+
+fs.readFile(__dirname+'/hello.txt','utf8', (err,data) => {
+  if(err) throw err;
+  
+  console.log(data);
+});
+// OutPut : show route file hello.txt data in console
+```
+
+* Read file in browser with HTTP server
+``  node
+const fs    = require('fs')
+const http  = require('http')
+
+const server = http.createServer((req, res) => {
+  // Read file in browser
+  fs.readFile(__dirname+'/hello.txt', 'utf8', (err, data) => {
+    res.writeHead(200, {'content-type': 'text/plain'});
+    res.write(data);
+    res.end(); // end is required for every write function
+    if(err) throw err;
+    
+  })
+}).listen(5000, ()=>console.log('server running on 5000 port'))
+
+```
+* Delete File
+```node
+const fs = require('fs')
+
+fs.unlink(__dirname+'/hello.txt', (err, data) => {
+  if(err) throw err;
+  
+  console.log("file deleted successfully");
+})
+//Output : file deleted successfully
+```
+* writeFile
+* appendFile
+* writeFIleSync
+* appendFileSync etc.....
