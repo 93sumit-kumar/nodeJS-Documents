@@ -94,6 +94,19 @@ var stud = new student();
 console.log(stud.getData()) // you can use stud.address or stud.name or stud.age etc...
 ```
 
+* ## Create HTTP Server in NodeJS
+* Example: 
+```node
+const http = require('http')
+
+const server = http.createServer((req, res) => {
+  res.writeHead(200,{'content-type':'text/plain'}); // or text/html or application/json etc...
+  res.write('Hello Server'); // use for display content on browser
+  res.end(); // use for end the res
+}).listen(5000,()=>console.log('server created...')); // listen is use for port assign to server
+```
+
+
 * ## FileSystem in NodeJS
 * Read file example (in console)
 ```node
@@ -139,3 +152,20 @@ fs.unlink(__dirname+'/hello.txt', (err, data) => {
 * appendFile
 * writeFIleSync
 * appendFileSync etc.....
+
+* ## Nodemon Package in NodeJS
+* nodemon is use for automatic server start after any changes not required every time start the server
+```node
+// install nodemoon for windows
+npm install -g nodemon // -g for globally
+
+// Install nodemon for MAC
+sudo npm install -g nodemon // sudo is use for give permission to write file
+```
+* Now you have to run the server with -
+```node
+nodemon file_name.js
+```
+
+
+
