@@ -108,7 +108,7 @@ fs.readFile(__dirname+'/hello.txt','utf8', (err,data) => {
 ```
 
 * Read file in browser with HTTP server
-``  node
+```node
 const fs    = require('fs')
 const http  = require('http')
 
