@@ -198,3 +198,57 @@ event.emit('click', 6,7);
 
 // Output : 13
 ```
+* function use in events
+```node
+const events = require('events')
+const event = new events.EventEmitter();
+
+const firstEvent = (val1,val2) => {
+  console.log(val1*val2)
+}
+event.on('click', firstEvent);
+
+event.emit('click', 4,5);
+
+// Output : 20
+
+// one more example
+const events = require('events')
+const event = new events.EventEmitter();
+
+const firstEvent = (val1,val2) => {
+  console.log(val1*val2);
+  event.emit('click2'); // use second event in 1st event function
+}
+const secondEvent = () => {
+  console.log("Second event trigger")
+}
+event.on('click2', secondEvent)
+event.on('click', firstEvent);
+
+event.emit('click', 4,5);
+
+// OUtput : 20 and Second event trigger
+
+// One more example
+const events = require('events')
+const event = new events.EventEmitter();
+
+const firstEvent = (val1,val2) => {
+  console.log(val1*val2);
+  event.emit('click2'); // use second event in 1st event function
+  event.emit('click3'); // you can use it here or you can use it in 2nd event function also
+}
+const secondEvent = () => {
+  console.log("Second event trigger")
+}
+const thirdEvent = () => {
+  console.log("Third event trigger")
+}
+
+event.on('click', firstEvent);
+event.on('click2', secondEvent)
+event.on('click3', thirdEvent)
+
+event.emit('click', 4,5);
+```
