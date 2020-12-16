@@ -167,5 +167,14 @@ sudo npm install -g nodemon // sudo is use for give permission to write file
 nodemon file_name.js
 ```
 
+* ## Events in NodeJS
+* Example:
+```node
+const events = require('events')
+const event = new events.EventEmitter();
 
+event.on('click', () =>console.log("First event clicked..."));
+
+event.emit('click'); //emit value is same as .on value
+```
 
