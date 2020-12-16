@@ -177,4 +177,24 @@ event.on('click', () =>console.log("First event clicked..."));
 
 event.emit('click'); //emit value is same as .on value
 ```
+* Event with parameters
+```node
+const events = require('events')
+const event = new events.EventEmitter();
 
+event.on('click', (data) =>console.log(data));
+
+event.emit('click', "This is my first event module...");
+
+// Output : This is my first event module
+
+// one more Example
+const events = require('events')
+const event = new events.EventEmitter();
+
+event.on('click', (val1,val2) =>console.log(val1+val2));
+
+event.emit('click', 6,7);
+
+// Output : 13
+```
