@@ -39,7 +39,7 @@ app.METHOD(PATH, HANDLER)
 * METHOD is an HTTP request method, in lowercase.
 * PATH is a path on the server.
 * HANDLER is the function executed when the route is matched.
-* #### Example:
+#### Example:
 * GET Request:
 ```node
 app.get('/', function (req, res) {
