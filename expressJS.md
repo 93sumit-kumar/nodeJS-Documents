@@ -34,7 +34,7 @@ app.server(5000, () =>console.log("Server started at port : 5000"));
 ```node
 app.METHOD(PATH, HANDLER)
 ```
-* #### Parameter Details
+#### Parameter Details
 * app is an instance of express.
 * METHOD is an HTTP request method, in lowercase.
 * PATH is a path on the server.
