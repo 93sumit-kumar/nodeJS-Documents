@@ -123,3 +123,18 @@ app.listen(5000, ()=>console.log("Server started..."));
 </html>
 ```
 #### Now it is working
+### Multiple static assets directories use like:
+```node
+app.use(express.static('public'))
+app.use(express.static('files'))
+// etc....
+```
+* Note: Use the virtual path prefix for express.static(where the path does not actually exist in the file system):
+```node
+app.use('/static', express.static('public'));
+// also add /static in HTML link
+```
+ If you run the express app from another directory, it’s safer to use the absolute path of the directory 
+ ```node
+ app.use('/static', express.static(path.join(__dirname, 'public')))
+ ```
