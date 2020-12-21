@@ -1,4 +1,4 @@
-* ## ExpressJS in NodeJS
+# ExpressJS in NodeJS
 * ExpressJS is default framework of NodeJS.
 * ExpressJS install
 ```node
@@ -25,7 +25,7 @@ app.server(5000, () =>console.log("Server started at port : 5000"));
 // console  - Server started at port : 5000
 ```
 
-* ## Basic Routing in NodeJS
+# Basic Routing in NodeJS
 * GET
 * POST
 * PUT
@@ -65,7 +65,7 @@ app.delete('/user', function (req, res) {
 })
 ```
 
-## Static File in NodeJS
+# Static File in NodeJS
 * To use static files such as images, CSS files, and JavaScript files in NodeJS with the #### express.static built-in middleware function
 Syntax:
 ```node
