@@ -64,3 +64,62 @@ app.delete('/user', function (req, res) {
   res.send('Got a DELETE request at /user')
 })
 ```
+
+## Static File in NodeJS
+* To use static files such as images, CSS files, and JavaScript files in NodeJS with the #### express.static built-in middleware function
+Syntax:
+```node
+express.static(root, [options])
+```
+Note: If you want to use CSS, JS and images file in HTML using below code is not working
+#### index.html
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Static page express js</title>
+        <link rel="styleshet" href="./expressJS/public/css/style.css">
+    </head>
+    <body>
+        <h1>Static File in ExpressJS</h1>
+        <img src="./expressJS/public/images/bharat.jpg" alt="Image Tag">
+    </body>
+</html>
+```
+* #### use the following code to serve images, CSS files, and JavaScript files in a directory named public
+```node
+// Use this code in Route page
+app.use(express.static('public'))
+```
+Example:
+#### index.js
+```node
+const express = require('express')
+const app = express();
+
+app.use(express.static('public')); // Use This code to get the data from "public" folder
+
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/index.html')
+});
+app.get('/user', (req,res) => {
+    res.send("User page in expess js");
+});
+app.listen(5000, ()=>console.log("Server started..."));
+
+```
+#### index.html
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Static page express js</title>
+        <link rel="styleshet" href="/css/style.css">
+    </head>
+    <body>
+        <h1>Static File in ExpressJS</h1>
+        <img src="/images/bharat.jpg" alt="Image Tag">
+    </body>
+</html>
+```
+#### Now it is working
