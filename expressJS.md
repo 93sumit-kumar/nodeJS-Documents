@@ -138,3 +138,41 @@ app.use('/static', express.static('public'));
  ```node
  app.use('/static', express.static(path.join(__dirname, 'public')))
  ```
+## Routing in NodeJS
+Examples:
+```node
+const express = require('express')
+const app = express();
+app.use('/static', express.static('public'));
+
+app.get('/', (req,res) => {
+  res.send("Main route page");
+});
+app.get('/user', (req,res) => {
+  res.send("User page data");
+});
+```
+* #### Route with single URL parameter
+```node
+// Router with Parameter
+app.get('/users/:id', (req,res) => {
+  res.send("Parameter ID : " + req.params.id)
+})
+```
+* #### Route with multiple URL parameters
+```node
+// Router with Parameter
+app.get('/users/:id/book/:bookId', (req,res) => {
+  res.send("Parameter ID : " + req.params.id + " Book ID : " + req.params.bookId)
+})
+```
+* #### Route with Optional Parameters
+use ? after parameter for optional parameter
+```node
+app.get('/users/:id?', (req,res) => {
+  if(req.params.id == undefined)
+    res.send("All User data accessed");
+  else
+    res.send("Parameter ID : " + req.params.id);
+})
+```
