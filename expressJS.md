@@ -176,3 +176,9 @@ app.get('/users/:id?', (req,res) => {
     res.send("Parameter ID : " + req.params.id);
 })
 ```
+* #### Route with from-to(like- Railway booking, Flight booking) URL parameter
+```node
+app.get('/flight/:From-:To', (req,res) => {
+  res.send("Search Flight From : " + req.params.From + " To : " + req.params.To)
+})
+```
