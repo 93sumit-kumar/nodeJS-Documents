@@ -213,3 +213,17 @@ app.get('/ab*cd', (req, res) => {
 // http://localhost:5000/abhellocd  &&  http://localhost:5000/ab562653cd
 output: hello & 562653
 ```
+* With ab(cd)?e example:
+This route path will match /abe and /abcde.
+```node
+app.get('/ab(cd)?e', function (req, res) {
+  res.send('ab(cd)?e')
+})
+```
+* With /.*fly$/ Example:
+This route path will match butterfly and dragonfly, but not butterflyman, dragonflyman, and so on.
+```node
+app.get(/.*fly$/, function (req, res) {
+  res.send('/.*fly$/')
+})
+```
