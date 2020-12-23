@@ -182,3 +182,34 @@ app.get('/flight/:From-:To', (req,res) => {
   res.send("Search Flight From : " + req.params.From + " To : " + req.params.To)
 })
 ```
+### Route paths based on string patterns in NodeJS
+* With ? Example:
+```node
+app.get('/ab?cd', (req, res) => {
+    res.sendFile(__dirname + '/index.html')
+});
+
+// Output : Output will be same with both URL - 
+// http://localhost:5000/abcd  &&  http://localhost:5000/acd
+```
+* With + Example:
+```node
+app.get('/ab+cd', (req, res) => {
+    res.sendFile(__dirname + '/index.html')
+});
+
+// Output : Output will be same with both URL - 
+// http://localhost:5000/abcd or abbcd or abbbbcd or abbbbbcd.......
+// add many more b output will be same
+```
+* With '*' Example:
+##### Note: This is the best way to secure your Parameter
+```node
+app.get('/ab*cd', (req, res) => {
+    res.send("Output Data " + req.params[0])
+});
+
+// Output : Output will be change with value between ab and cd URL - 
+// http://localhost:5000/abhellocd  &&  http://localhost:5000/ab562653cd
+output: hello & 562653
+```
