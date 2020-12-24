@@ -1,5 +1,5 @@
 # Middleware in NodeJS
-* Globally accessable middleware with ```node app.use(middleware_name) ```
+* #### Globally accessable middleware with ```node app.use(middleware_name) ```
 ```node
 const express = require('express');
 const app = express();
@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
 app.listen(5000, ()=>console.log('server started at 5000'));
 ```
 
-* Middleware used for specific Route 
+* #### Middleware used for specific Route 
 ```node
 const express = require('express');
 const app = express();
