@@ -112,3 +112,34 @@ After that change the extention file in /public/views folder
 </html>
 ```
 * Note: In ejs {{ variable }} is use for dynamic print the variable data
+
+## Get the URL parameter value
+* Get the URL parameter value and display on template engine page(similar use in all pug,ejs and twig)
+using twig engine
+```node
+const express = require('express')
+const app = express();
+
+app.set('view engine', 'twig');
+app.set('views', '/public/views')
+
+app.get('/', (req, res) => {
+  res.render('index', {headTitle: 'This is head title', message: 'This is body messsage data'})
+});
+
+app.get('/about/:a-:b', (req,res) => {
+  res.render('index', {headTitle: 'URL parameter', message: 'Sum of '+ req.params.a + ' and ' + req.params.b + ' = ' + (parseInt(req.params.a)+ parseInt(req.params.b)) })
+})
+```
+* /public/views/index.twig
+```twig
+<html>
+  <head>
+    <title>{{ headTitle }}</title>
+  </head>
+  <body>
+    <h1>{{ message }}</h1>
+  </body>
+</html>
+```
+OutPut : Sum of 4 and 5 = 9
