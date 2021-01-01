@@ -63,3 +63,27 @@ html
   </body>
 </html>
 ```
+## EJS template engine
+* EJS is similar to PUG 
+```node
+npm i ejs
+```
+* just need little changes in app.js and change the extention and code in /public/views/index file
+* ./app.js
+```node
+// just change view engine name from pug to ejs
+app.set('view engine', 'ejs')
+```
+After that change the extention file in /public/views folder
+./public/views/index.ejs
+```ejs
+<html>
+  <head>
+    <title><%= headTitle %></title>
+  </head>
+  <body>
+    <h1><%= message %></h1>
+  </body>
+</html>
+```
+* Note: In ejs <%%> is use for ejs dynamic code use <%= %> use to print the variable data
