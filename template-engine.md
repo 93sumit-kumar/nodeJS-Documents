@@ -1,5 +1,5 @@
 # Template Engine in NodeJS
-## PUG 
+## PUG
 * Pug is a high performance template engine heavily influenced by Haml and implemented with JavaScript for Node.js and browsers.
 #### Package Installation
 ```node
@@ -19,5 +19,47 @@ app.set('view engine', 'pug')
 app.set('view', '/public/views'); 
 // if pug code is under public/views folder
 ```
+#### Now Ready for use
+* ./app.js
+```node
+const express = require('express')
+const app = express();
 
+// set the template engine to PUG
+app.set('view engine', 'pug')
 
+// set the views of pug code location
+app.set('views', '/public/views') // if pug code file is under public/views folder
+
+// Router
+app.get('/', (req,res) => {
+  // render is use to render the file as output.
+  // Title and message is json variable inline data supply
+  res.render('index'/, {headTitle: 'Pug Engine', message: 'Pug Template engine'})
+});
+
+// server with port 5000
+app.listen(5000,()=>console.log('Server started...')
+```
+* ./public/views/index.pug
+```pug
+html
+  head
+    titile: headTitle
+    
+  body
+    h1: message
+    
+```
+#### Now pug convert code into below html code
+```html
+
+<html>
+  <head>
+    <title>Pug Engine</title>
+  </head>
+  <body>
+    <h1>Pug Template engine</h1>
+  </body>
+</html>
+```
