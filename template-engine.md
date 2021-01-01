@@ -87,3 +87,28 @@ After that change the extention file in /public/views folder
 </html>
 ```
 * Note: In ejs <%%> is use for ejs dynamic code use <%= %> use to print the variable data
+
+## twig template engine
+* Its Configuration is same as PUG and EJS
+```node
+npm i twig
+```
+* just need little changes in app.js and change the extention and code in /public/views/index file
+* ./app.js
+```node
+// just change view engine name from pug to twig
+app.set('view engine', 'twig')
+```
+After that change the extention file in /public/views folder
+./public/views/index.twig
+```twig
+<html>
+  <head>
+    <title>{{ headTitle }}</title>
+  </head>
+  <body>
+    <h1>{{ message }}</h1>
+  </body>
+</html>
+```
+* Note: In ejs {{ variable }} is use for dynamic print the variable data
