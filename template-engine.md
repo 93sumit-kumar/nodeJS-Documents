@@ -143,3 +143,34 @@ app.get('/about/:a-:b', (req,res) => {
 </html>
 ```
 OutPut : Sum of 4 and 5 = 9
+#### Multiple variable value 
+* ./app.js
+```node
+const express = require('express');
+const app = express();
+
+// Set the template engine
+app.set('view engine', 'pug');
+
+// Set view folder location
+app.set('views', 'views');
+
+app.get('/', (req,res) => {
+    res.render('index', {title: 'Pug Engine', message: 'Pug Template engine'});
+});
+app.get('/about/:a-:b', (req,res) => {
+    res.render('index', {title: 'URL parameter', sum: 'Sum of '+ req.params.a + ' and ' + req.params.b + ' = ' + (parseInt(req.params.a)+ parseInt(req.params.b)), sub: 'Substraction of ' + req.params.a + ' and ' + req.params.b + ' = ' + (parseInt(req.params.a) - parseInt(req.params.b)), multi: 'Multiplication of ' + req.params.a + ' and ' +req.params.b+ ' = ' + (parseInt(req.params.a) * parseInt(req.params.b)) })
+  })
+app.listen(5000, ()=>console.log("Server started..."))
+```
+*./public/views/index.pug
+```pug
+html
+    head
+        title= title
+
+    body
+        h1= 'Sum: '+sum
+        h2= 'Sub: '+sub
+        h3= 'Multi: '+multi
+```
