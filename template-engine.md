@@ -174,3 +174,23 @@ html
         h2= 'Sub: '+sub
         h3= 'Multi: '+multi
 ```
+### Form submit using POST method in NodeJS
+* When we have to send body data then we need ```node body-parser ``` package.
+To install bosy-parser package: 
+```node
+npm i body-parser
+```
+After finish the installation of the body-parser package. We need some configuration in app.js
+./app.js
+```node
+// require the package
+const bodyParser = require('body-parser')
+// than add 2 more line
+ // parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// parse application/json
+app.use(bodyParser.json())
+
+```
+#### Let's start form submit using POST method
