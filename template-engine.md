@@ -194,3 +194,62 @@ app.use(bodyParser.json())
 
 ```
 #### Let's start form submit using POST method
+* ./app.js
+```node
+const express = require('express')
+const bodyParser = require('body-parser')
+const app = express()
+
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+
+app.use('view engine', 'twig')
+app.use('views', '/public/views')
+
+app.get('/', (req,res) => {
+  res.render('login')
+})
+//  Post method
+app.post('/', (req,res) => {
+  res.render('login-details', {title: 'Login Details page', userName: req.body.username, password: req.body.password})
+})
+
+app.listen(5000, ()=>console.log("Server Started..."))
+```
+* ./public/views/login.twig
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login page</title>
+</head>
+<body>
+    <form method="POST">
+        <input type="text" name="username" placeholder="Username"><br>
+        <input type="password" name="password" placeholder="Password"><br>
+        <input type="password" name="cpassword" placeholder="CPassword"><br>
+        <input type="submit" name="search" value="search" class="btn btn-info">
+    </form>
+</body>
+</html>
+
+```
+To display the data:
+* ./public/views/login-details.twig
+```twig
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+</head>
+<body>
+    <h1>Username: {{ userName }}</h1>
+    <h1>Password: {{ password }}</h1>
+</body>
+</html>
+
+```
