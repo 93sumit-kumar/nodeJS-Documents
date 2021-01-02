@@ -75,7 +75,7 @@ npm i ejs
 app.set('view engine', 'ejs')
 ```
 After that change the extention file in /public/views folder
-./public/views/index.ejs
+* ./public/views/index.ejs
 ```ejs
 <html>
   <head>
