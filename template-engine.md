@@ -163,7 +163,7 @@ app.get('/about/:a-:b', (req,res) => {
   })
 app.listen(5000, ()=>console.log("Server started..."))
 ```
-*./public/views/index.pug
+* ./public/views/index.pug
 ```pug
 html
     head
