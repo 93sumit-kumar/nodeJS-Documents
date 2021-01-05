@@ -14,7 +14,7 @@ cosnt { body, validationParser, matchedData } = require('express-validator')
 // matchedData is used for parse the data after validation matched
 
 ```
-#### Example
+#### Example to get the form data and validate data and check confirm password
 ================ ./app.js ==================
 * ./app.js
 ```node
