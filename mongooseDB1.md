@@ -2,6 +2,8 @@
 Mongoose is a MongoDB object modeling tool designed to work in an asynchronous environment. 
 Mongoose provides a straight-forward, schema-based solution to model your application data. Mongoose supports both promises and callbacks. It includes built-in type casting, validation, query building, business logic hooks and more, out of the box.
 
+__mlab is used for live cloud database for Mongodb(500MB Free). Link: https://mlab.com/__
+
 __Note:__ First be sure you have MongoDB and Node.js installed.
 ## Installation
 Now install __Mongoose__ by below command line using __npm__
