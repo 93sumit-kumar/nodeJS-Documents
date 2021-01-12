@@ -116,6 +116,7 @@ const MyModel = mongoose.model('ModelName', mySchema);
 
 ```
 First argument is the singular name of the model collection.
+
 __Mongoose automatically looks for the plural version of your model name.__
 
 __Ex:__
