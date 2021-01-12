@@ -47,13 +47,93 @@ For Model defining we need to create with __Schema interface__
 const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId;
 
-const BlogPost = new Schema({
-  author: ObjectId,
-  title: String,
-  body: String,
-  date: Date
+const blogSchema = new Schema({
+    author: ObjectId,
+    title:  String, // String is shorthand for {type: String}
+    
+    body:   String,
+    comments: [{ body: String, date: Date }],
+    date: { type: Date, default: Date.now },
+    hidden: Boolean,
+    meta: {
+      votes: Number,
+      favs:  Number
+    }
+  });
+
+```
+
+### The permitted SchemaTypes are:
+* __String__
+* __Number__
+* __Date__
+* __Buffer__
+* __Boolean__
+* __Mixed__
+* __Array__
+* __ObjectId__
+* __Decimal128__
+* __Map__
+
+The following example shows some of these features:
+
+```node
+
+const Comment = new Schema({
+  name: { type: String, default: 'hahaha' },
+  age: { type: Number, min: 18, index: true },
+  bio: { type: String, match: /[a-z]/ },
+  date: { type: Date, default: Date.now },
+  buff: Buffer
+});
+
+// a setter
+Comment.path('name').set(function (v) {
+  return capitalize(v);
+});
+
+// middleware
+Comment.pre('save', function (next) {
+  notify(this.get('email'));
+  next();
 });
 
 ```
 
+### Model Accessing
+Once we define a model through ```node mongoose.model('ModelName', mySchema) ```, we can access it through the same function
+
+```node
+
+const MyModel = mongoose.model('ModelName');
+
+```
+Or just do it all at once
+
+```node
+
+const MyModel = mongoose.model('ModelName', mySchema);
+
+```
+First argument is the singular name of the model collection.
+__Mongoose automatically looks for the plural version of your model name.__
+
+__Ex:__
+
+```node
+const MyModel = mongoose.model('Ticket, mySchema');
+
+```
+Now Mongoose will create model for your __Tickets__ collection, not your __Tiket__ collection.
+
+After Creating our Model __save__ the instance
+```node
+
+const instance = new MyModel();
+instance.my.key = 'hello';
+instance.save(function (err) {
+  //
+});
+
+```
 
