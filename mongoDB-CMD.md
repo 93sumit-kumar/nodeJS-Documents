@@ -74,6 +74,41 @@ $ db.collection.inventory.insertOne({name: 'Sumit Kumar', email: '93kr.sumit@gma
 }
 
 ```
+### TO find the data from database collection using CMD
+```cmd
 
+// Find the single data from collection
+$ db.inventory.find({ name: 'Sumit'})
 
+// Output: Fetch the database according to name where name = sumit
+
+```
+### To Find the data from database collection with Beautfy 
+```cmd
+
+// using pretty() to display data in style format
+$ db.inventory.find({name: 'Sumit kumar'}).pretty()
+
+```
+### To Insert Many data into database collection using CMD
+```cmd
+
+// Insert many data using insertMany
+db.inventory.insertMany([
+   { name: 'Sumit Singh',email: 'sumit@gmail.com', phone: 767*****52 },
+   { name: 'Amit Kumar', email: 'amit@gmail.com', phone: 985*****52 },
+   { name: 'Ram', email: 'ram@gmail.com', phone: 785*****85 }
+])
+
+// Output:
+{
+        "acknowledged" : true,
+        "insertedIds" : [
+                ObjectId("600354d84dac76889873c5b9"),
+                ObjectId("600354d84dac76889873c5ba"),
+                ObjectId("600354d84dac76889873c5bb")
+        ]
+}
+
+```
 
