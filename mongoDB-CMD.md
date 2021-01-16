@@ -111,4 +111,11 @@ db.inventory.insertMany([
 }
 
 ```
+### To Find All Data From Database Collection using CMD
+```cmd
 
+// Find all data
+$ db.inventory.find({}).pretty()
+
+// Return all data
+```
