@@ -37,3 +37,43 @@ $ use database_name
 $ show collections
 
 ```
+### To Create new database using CMD
+```cmd
+
+// To Create Database 1st write use database_name command
+$ use database_name
+
+// Than use below command
+$ db.createCollection('inventory')
+// if return {ok:1} means created successfully
+
+```
+### To Create new database collection using CMD
+```cmd
+
+// Select Database
+$ use inventory
+
+// than create new collection for inventroy
+$ db.createCollection('inventory')
+
+```
+### To Insert the single data into database collection using CMD
+```cmd
+
+// Insert single data into collection
+$ db.collection_name.insertOne({ data_in_json_format })
+
+// Ex.
+$ db.collection.inventory.insertOne({name: 'Sumit Kumar', email: '93kr.sumit@gmail.com', phone: 850*****43})
+
+// Success Output
+{
+   "acknowledged" : true,
+   "insertedId" : ObjectId("60034cc04dac76889873c5b8")
+}
+
+```
+
+
+
