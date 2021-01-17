@@ -119,3 +119,34 @@ $ db.inventory.find({}).pretty()
 
 // Return all data
 ```
+
+## Here is some conditional operator in MongoDB
+
+* __$lt__ means __lessthan__
+* __$gt__ means __greaterthan__
+* __$lte__ means __lessthan Equalto__
+* __$gte__ means __greaterthan Equalto__
+__ETC......__
+
+### To use IN in select data from collection using CMD
+```cmd
+
+// Find data according to IN
+$ db.inventory.find( { field_name: { $in: ['value1', 'value2', 'value3'] } } )
+
+```
+## Note: 
+According to SQL we need to set table schema 1st than insert the data according to table schema. But in MongoDB we can change our table schema whenever required and not neccessery to insert data according to table schema we can create our own schema according to requirement.
+
+### Specify AND condition with lessThan condition using CMD
+```cmd
+
+// $lt = lessthan
+
+```
+
+
+
+
+
+
