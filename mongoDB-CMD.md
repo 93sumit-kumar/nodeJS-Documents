@@ -126,6 +126,8 @@ $ db.inventory.find({}).pretty()
 * __$gt__ means __greaterthan__
 * __$lte__ means __lessthan Equalto__
 * __$gte__ means __greaterthan Equalto__
+* __$in__ means __IN__
+* __/^value/__ means __LIKE 'value%'__  
 __ETC......__
 
 ### To use IN in select data from collection using CMD
@@ -142,10 +144,47 @@ According to SQL we need to set table schema 1st than insert the data according 
 ```cmd
 
 // $lt = lessthan
+$ db.inventory.find( { status: "value", qty: { $lt: value } } )
+
+// According to SQL above Query is like-
+SELECT * FROM inventory WHERE status = "A" AND qty < 30
 
 ```
+### Specify OR condition using CMD
+```cmd
+//$or = OR
+$ db.inventory.find( { $or: [ { status: "A" }, { qty: { $lt: 30 } } ] } )
 
+// According to SQL Query above QUery Like - 
+SELECT * FROM inventory WHERE status = "A" OR qty < 30
 
+```
+### Specify the AND, OR & LIKE condition in MongoDB using CMD
+```cmd
+// $lt = lessthan, $in = IN, // = LIKE
+$ db.inventory.find( { field_name: search_val, $or [ { field_name: { $lt/$gt/$lte/$gte: value } }, { field_name: /^value/ } ] } )
+
+// SQL Query for Above Query is Like- 
+SELECT * FROM inventory WHERE status = "A" AND ( qty < 30 OR item LIKE "p%")
+
+```
+## UPDATE Collection data in MongoDB using CMD
+
+### UPDATE Query to update single data using CMD
+
+update the first data where name equals "Ram":
+
+```cmd
+//UPDATE Query - db.collection_name.updateOne()
+$ db.inventory.updateOne( { name: 'Ram' }, 
+   { 
+      $set: 
+         { 'email': 'ramsingh@gmail.com', 'phone': '7865411221' }, 
+      $currentDate: { lastModified: true } 
+   } 
+)
+
+```
 
 
 
