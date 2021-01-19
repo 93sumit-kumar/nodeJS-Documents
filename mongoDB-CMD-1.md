@@ -97,11 +97,25 @@ $ db.inventory.find().skip(2)
 // skip from bottom
 $db.inventory.find().sort({ "_id": -1 }).skip(2)
 
-//Output 1st data get in DESC order than remove 2 data from top.
+//Output: 1st data get in DESC order than remove 2 data from top.
 // show 2 data remove from bottom as per _id
 
 ```
+### Limit in MongoDB using cmd
+```cmd
 
+// Limit from top
+$ db.inventory.find().limit(2)
+
+// Output Show top 2 rows data
+
+// limit from bottom
+$db.inventory.find().sort({ "_id": -1 }).limit(2)
+
+//Output: 1st data get in DESC order than show 2 data from top.
+// show 2 data limit from bottom as per _id
+
+```
 
 
 
