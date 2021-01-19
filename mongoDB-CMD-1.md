@@ -186,6 +186,23 @@ db.createCollection("students", {
 })
 
 ```
+### Create MongoDB backup and Restore
+* __Backup__
+__1st Step:__ Create a folder
+__2nd Step:__ In CMD go to that folder
+__3rd Step:__ type mongodump to take backup of all the database
+* __Restore__
+__1st Step:__ delete database using ```cmd $ use table_name; than $ db.dropDatabase() ```
+__2nd Step:__  in CMD go to that backup folder
+__3rd Step:__ Type mongorestore to restore data
+
+```cmd
+
+
+```
+
+
+
 
 
 
