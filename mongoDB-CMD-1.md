@@ -64,3 +64,46 @@ $ db.inventory.aggregate([
 
 ```
 * __Note:__ localField means comman field which is available in both table and forgineField means what what data you want to get.
+
+### Sort in MongoDB usingg cmd
+```cmd
+
+// 1 for ASC 
+$ db.inventory.find().sort({ "item": 1 })
+
+// Output will be in ASC order
+
+
+// -1 for DESC
+$ db.inventory.find().sort({ "item": -1 })
+
+// Output will be in DESC order
+
+```
+### Skip in MongoDB using cmd
+
+In skip function inter how many no you want to skip from top.
+if you want to remove from bottom than you have also use sort before skip.
+
+Let's see below __Ex:__
+
+```cmd
+
+// skip from top
+$ db.inventory.find().skip(2)
+
+// Output remove top 2 rows data
+
+// skip from bottom
+$db.inventory.find().sort({ "_id": -1 }).skip(2)
+
+//Output 1st data get in DESC order than remove 2 data from top.
+// show 2 data remove from bottom as per _id
+
+```
+
+
+
+
+
+
