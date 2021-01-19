@@ -131,7 +131,61 @@ $ db.users.createIndex({ "email":1 }) // ASC order
 // Output: added one more index in DB
 
 ```
+### Schema Validation(DataType validation)
 
+MongoDB provides the capability to perform schema validation during updates and insertions.
+
+MongoDB also provides the following related options:
+
+validationLevel option, which determines how strictly MongoDB applies validation rules to existing documents during an update, and
+validationAction option, which determines whether MongoDB should error and reject documents that violate the validation rules or warn about the violations in the log but allow invalid documents.
+
+For example, the following example specifies validation rules using JSON schema:
+```cmd
+db.createCollection("students", {
+   validator: {
+      $jsonSchema: {
+         bsonType: "object",
+         required: [ "name", "year", "major", "address" ],
+         properties: {
+            name: {
+               bsonType: "string",
+               description: "must be a string and is required"
+            },
+            year: {
+               bsonType: "int",
+               minimum: 2017,
+               maximum: 3017,
+               description: "must be an integer in [ 2017, 3017 ] and is required"
+            },
+            major: {
+               enum: [ "Math", "English", "Computer Science", "History", null ],
+               description: "can only be one of the enum values and is required"
+            },
+            gpa: {
+               bsonType: [ "double" ],
+               description: "must be a double if the field exists"
+            },
+            address: {
+               bsonType: "object",
+               required: [ "city" ],
+               properties: {
+                  street: {
+                     bsonType: "string",
+                     description: "must be a string if the field exists"
+                  },
+                  city: {
+                     bsonType: "string",
+                     description: "must be a string and is required"
+                  }
+               }
+            }
+         }
+      }
+   }
+})
+
+```
 
 
 
