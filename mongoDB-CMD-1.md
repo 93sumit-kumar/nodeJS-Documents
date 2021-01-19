@@ -116,7 +116,21 @@ $db.inventory.find().sort({ "_id": -1 }).limit(2)
 // show 2 data limit from bottom as per _id
 
 ```
+### Indexes in MongoDB using cmd
+Indexes support the efficient execution of queries in MongoDB. Without indexes, MongoDB must perform a collection scan, i.e. scan every document in a collection, to select those documents that match the query statement.
+```cmd
 
+// using users collection uder test
+$ db.users.getIndexes()
+
+//Output: data with indexes
+
+// Create Indexes
+$ db.users.createIndex({ "email":1 }) // ASC order
+
+// Output: added one more index in DB
+
+```
 
 
 
