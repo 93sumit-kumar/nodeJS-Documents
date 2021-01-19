@@ -37,5 +37,30 @@ $ db.orders.aggregate([
 
 ```
 
+### Get some column value from table using aggregation projection using CMD
 
+__Note:__ `column_field: 1` means to display the field data. `column_field: 0` means to not display the field data. __You can not use `1` & `0` in same query only _id can define 0__
+```cmd
 
+//Using aggreration
+$ db.inventory.aggregate( [ { $project: { "item": 1, "qty": 1, "amount": 1 } } ] ).pretty()
+
+```
+### Get some column value from table using aggregation without projection using CMD
+```cmd
+
+// display = 1, Not display = 0
+$ db.inventory.find({}, { "item": 1, "qty": 1, "amount": 1 }).pretty()
+
+```
+### Lookup(JOIN) in MongoDB using CMD
+```cmd
+
+// lookup means JOIN
+$ db.inventory.aggregate([
+  { $match: { "item":"computer" } },
+  { $lookup: { from: "orders", localField: "item", foreginField: "item",as: "order_details" } }
+]).pretty()
+
+```
+* __Note:__ localField means comman field which is available in both table and forgineField means what what data you want to get.
