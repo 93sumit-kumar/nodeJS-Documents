@@ -2,7 +2,7 @@
 
 * Add get route for HTML form for edit & delete in ejs
 
-### edit page ./routes/index.js
+### edit file   ./routes/index.js
 
 ```node
 
@@ -19,7 +19,7 @@ router.get('/action', (req,res,next) => {
 
 * Edit the table with action for edit and delete data
 
-### ./view/edit-delete-data.ejs file
+### edit file    ./view/edit-delete-data.ejs file
 
 ```ejs
 
@@ -78,7 +78,7 @@ router.get('/action', (req,res,next) => {
 
 ## Now add get router for edit data
 
-### edit file ./routes/index.js
+### edit file   ./routes/index.js
 
 ```node
 
@@ -98,6 +98,8 @@ router.get('/edit/:id', (req,res,next) => {
 ```
 
 ## Now create a form for edit the data
+
+### edit file   ./views/edit.ejs
 
 ```ejs
 
@@ -189,7 +191,7 @@ router.get('/edit/:id', (req,res,next) => {
 
 ## Now add route for update the data into database
 
-### edit file ./routes/index.js
+### edit file   ./routes/index.js
 
 ```node
 
@@ -216,7 +218,7 @@ router.post('/update/', (req,res,next) => {
 
 ## Now create the delete route for delete the data
 
-### edit file ./routes/index.js
+### edit file   ./routes/index.js
 
 ```node
 
