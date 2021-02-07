@@ -73,7 +73,31 @@ const express = require('express');
 const multer = require('multer');
 // require path
 const path = require('path');
+// Set static value
+router.use(express.static(__dirname+"./public/")); 
 
+// Destination path
+var Storage = multer.diskStorage({
+  destination:'./public/uploads/',
+  filename: (req, file, cb) => {
+    cb(null,file.fieldname+"_"+Date.now()+path.extname(file.originalname))
+    
+  }
+});
+
+
+var upload = multer({
+  storage:Storage
+}).single('file');
+
+/**
+ * Router for upload image file
+ */
+router.post('/upload/',upload, (req,res,next) => {
+  var success = req.file.filename+ 'uploaded successfully...';
+  res.render('upload-img', {title: 'uploaded img', success: success });
+});
+module.exports = router;
 
 ```
 
